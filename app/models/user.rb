@@ -3,16 +3,7 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   attr_reader :password
-
-  F self.find_by_credentials
-  I is_password?
-  G generate_unique_user_token
-  V validations
-  A attr_reader :password 
-  P password/password=
-  E ensure_session_token
-  R reset_session_token!
-
+  
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
